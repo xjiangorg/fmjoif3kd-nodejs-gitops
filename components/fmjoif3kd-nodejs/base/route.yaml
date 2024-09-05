@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: fmjoif3kd-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: fmjoif3kd-nodejs 
+  name: fmjoif3kd-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: fmjoif3kd-nodejs
+    weight: 100 
